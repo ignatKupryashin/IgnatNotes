@@ -50,8 +50,8 @@ class UI:
         print("---------------------\n" + self.notelist.read_note(note_id) + "\n---------------------")
 
     def read_all_notes(self):
-        for key in self.notelist.notes.keys():
-            print("\n" + self.notelist.read_note(key) + "\n")
+        for note_id in self.notelist.notes.keys():
+            print("---------------------\n" + self.notelist.read_note(note_id) + "\n---------------------")
 
     def run(self):
         print("Добро пожаловать в Самые лучшие заметки!\n")

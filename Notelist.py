@@ -42,11 +42,10 @@ class Notelist:
 
     def read_note(self, note_id) -> str:
         current_note = self.notes[note_id]
-        note_string = "id: " + str(current_note.note_id) \
-                      + "\nДата создания: " + current_note.date_created \
-                      + "\nДата последнего изменения: " + current_note.date_created + "\n\n + " \
-                      + current_note.heading + "\n\n" + current_note.body
-        return current_note.heading + "\n\n" + current_note.body
+        note_string = "id: {0}\nДата создания: {1}\nДата последнего изменения: {2}\n\n{3}\n\n{4}".format(
+            str(current_note.note_id), str(current_note.date_created), str(current_note.date_created),
+            current_note.heading, current_note.body)
+        return note_string
 
     def filter_notes (self, note_id, heading, body) -> dict[int, Note]:
         answer = {}
