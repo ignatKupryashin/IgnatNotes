@@ -13,6 +13,7 @@ class Note:
 
     def refresh_edited_datetime(self):
         self.date_edited = datetime.datetime.now()
+        print(datetime.datetime.now())
 
     def change_body(self, body):
         self.body = body
