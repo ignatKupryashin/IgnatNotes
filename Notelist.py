@@ -41,10 +41,13 @@ class Notelist:
             del self.notes[note_id]
 
     def read_note(self, note_id) -> str:
-        current_note = self.notes[note_id]
-        note_string = "id: {0}\nДата создания: {1}\nДата последнего изменения: {2}\n\n{3}\n\n{4}".format(
-            str(current_note.note_id), str(current_note.date_created), str(current_note.date_created),
-            current_note.heading, current_note.body)
+        if note_id in self.notes.keys():
+            current_note = self.notes[note_id]
+            note_string = "id: {0}\nДата создания: {1}\nДата последнего изменения: {2}\n\n{3}\n\n{4}".format(
+                str(current_note.note_id), str(current_note.date_created), str(current_note.date_created),
+                current_note.heading, current_note.body)
+        else:
+            note_string = "Заметки с таким номером не найдено"
         return note_string
 
     def filter_notes (self, note_id, heading, body) -> dict[int, Note]:

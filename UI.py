@@ -7,6 +7,15 @@ class UI:
         self.flag = True
         self.notelist: Notelist = my_notelist
 
+
+    def input_number(self):
+        flag = True
+        while flag:
+            answer = input("Введите номер заметки: ")
+            if answer.isdigit():
+                flag = False
+                return int(answer)
+
     def print_main_menu(self):
         print("1. Добавить заметку\n"
               "2. Изменить заметку\n"
@@ -42,12 +51,14 @@ class UI:
                     self.notelist.add_note_body(note_id, adding)
 
     def delete_note(self):
-        note_id = input("Введите id заметки: ")
+        note_id = self.input_number()
         self.notelist.delete_note(note_id)
 
     def read_note(self):
-        note_id = input("Введите id заметки: ")
+        note_id = self.input_number()
         print("---------------------\n" + self.notelist.read_note(note_id) + "\n---------------------")
+
+
 
     def read_all_notes(self):
         for note_id in self.notelist.notes.keys():
