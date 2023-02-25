@@ -24,7 +24,6 @@ class Notelist:
 
     def add_note(self, heading, body):
         self.max_id += 1
-        print(self.max_id)
         self.notes[self.max_id] = Note(self.max_id, heading, body, datetime.datetime.now(), datetime.datetime.now())
 
     def change_note_body(self, note_id, body):
